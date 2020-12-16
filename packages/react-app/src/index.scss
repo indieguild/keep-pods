@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --headerFont: "Sora", sans-serif;
+  --bodyFont: "Lato", sans-serif;
+  --appNameFont: "Nunito", sans-serif;
+  --wildWatermelon: #fc2424;
+  --fuelYellow: #f0a035;
+  --fuelYellowDark: #eb8a0b;
+  --textColor: #323232;
+  --bodyBg: #E6E6E6;
+  --white: #fff;
+  --grey1Color: #ebebeb;
+  --grey2Color: #c6c6c6;
+  --grey3Color: #787878;
+  --grey4Color: #525252;
+  --grey5Color: #3a3a3a;
+  --black: #000;
+  --themeColor: #4bdbb4;
+  --primaryDisabled: #6c98e4;
+  --logoColor: #3463ae;
+  --themeColorDark: #0a3669;
+  --red: #ee0902;
+  --redDark: #811515;
+  --redDisabled: #fc7979;
+  --themeColorSelected: #1563bb27;
+  --labelColor: #737373;
+  --hoverBackground: rgba(197, 197, 197, 0.28);
+  --success: #219653;
+}
+
+body {
+  margin: 0 !important;
+}

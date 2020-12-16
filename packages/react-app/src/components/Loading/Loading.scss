@@ -1,0 +1,88 @@
+.Loading {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: var(--white);
+  align-items: center;
+  justify-content: center;
+
+  .spinner {
+    animation: rotator 1.4s linear infinite;
+    display: block;
+    margin: 20% auto;
+
+    .path {
+      stroke-dasharray: 187;
+      stroke-dashoffset: 0;
+      transform-origin: center;
+      animation: dash 1.4s ease-in-out infinite,
+        colors 5.6s ease-in-out infinite;
+    }
+  }
+
+  @keyframes rotator {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(270deg);
+    }
+  }
+
+  @-webkit-keyframes colors {
+    0% {
+      stroke: #219653;
+    }
+    20% {
+      stroke: #27ae60;
+    }
+    43% {
+      stroke: #eb5757;
+    }
+    59% {
+      stroke: #f4811a;
+    }
+    78% {
+      stroke: #9b51e0;
+    }
+    100% {
+      stroke: #2f80ed;
+    }
+  }
+
+  @keyframes colors {
+    0% {
+      stroke: #219653;
+    }
+    20% {
+      stroke: #27ae60;
+    }
+    43% {
+      stroke: #eb5757;
+    }
+    59% {
+      stroke: #f4811a;
+    }
+    78% {
+      stroke: #9b51e0;
+    }
+    100% {
+      stroke: #2f80ed;
+    }
+  }
+
+  @keyframes dash {
+    0% {
+      stroke-dashoffset: 187;
+    }
+    50% {
+      stroke-dashoffset: 46.75;
+      transform: rotate(135deg);
+    }
+    100% {
+      stroke-dashoffset: 187;
+      transform: rotate(450deg);
+    }
+  }
+}
