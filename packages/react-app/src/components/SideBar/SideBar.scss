@@ -24,7 +24,11 @@
 
   .side-bar-list-container {
     margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
     .side-bar-list-item {
+      text-decoration: none;
+      color: var(--textColor);
       padding: 12px 1rem;
       margin-bottom: 6px;
       cursor: pointer;
@@ -33,6 +37,10 @@
       &:hover {
         background-color: #e6e6e6;
       }
+    }
+
+    .selected-list-item {
+      background-color: #e6e6e6;
     }
   }
 }

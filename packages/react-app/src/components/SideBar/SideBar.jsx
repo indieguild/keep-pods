@@ -1,8 +1,12 @@
 import React from "react";
 import "./SideBar.scss";
 import { Link } from "react-router-dom";
+import useCurrentTab from "../../hooks/useCurrentTab";
 
 const SideBar = () => {
+
+  const {tab} = useCurrentTab();
+
   return (
     <div className="SideBar">
       <div className="side-bar-header">
@@ -11,9 +15,9 @@ const SideBar = () => {
         </Link>
       </div>
       <div className="side-bar-list-container">
-        <div className="side-bar-list-item">Overview</div>
-        <div className="side-bar-list-item">Manage Stake</div>
-        <div className="side-bar-list-item">Rewards</div>
+        <Link className={`side-bar-list-item ${tab === "Overview" ? "selected-list-item": ""}`} to="/overview">Overview</Link>
+        <Link className={`side-bar-list-item ${tab === "Manage Stake" ? "selected-list-item": ""}`} to="/manage-stake">Manage Stake</Link>
+        <Link className={`side-bar-list-item ${tab === "Rewards" ? "selected-list-item": ""}`} to="/rewards">Rewards</Link>
       </div>
     </div>
   );

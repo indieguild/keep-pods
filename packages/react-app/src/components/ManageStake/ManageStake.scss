@@ -1,0 +1,87 @@
+@import "../../styles/mixin";
+
+.ManageStake {
+  z-index: 100;
+  .overview-card {
+    box-shadow: 0 4px 4px hsla(0, 0%, 76.9%, 0.3);
+    background-color: var(--white);
+    padding: 2rem;
+    margin-bottom: 1.2rem;
+  
+    .overview-card-button-container {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      .staking-button {
+        @include primaryButton(#4bdbb4, #000, 1rem 2rem);
+      }
+    }
+  }
+
+  .overview-details {
+    display: flex;
+
+    .overview-card:nth-child(1) {
+      margin-right: 1rem;
+    }
+    .overview-card:nth-child(2) {
+      margin-left: 1rem;
+    }
+
+    .overview-card {
+      flex: 1;
+      height: fit-content;
+      .overview-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+
+        .overview-card-title {
+          margin: 0;
+          font-size: 2rem;
+        }
+
+        .overview-card-time {
+          font-size: 1.25rem;
+          color: var(--grey3Color);
+          display: flex;
+          align-items: center;
+
+          span {
+            display: flex;
+            margin-left: 0.5rem;
+          }
+        }
+      }
+
+      .overview-card-middle-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 2rem;
+
+        .overview-card-title {
+          margin: 0;
+          font-size: 2rem;
+        }
+      }
+
+      .overview-card-body-container {
+        display: flex;
+        align-items: center;
+        
+        span {
+          color: var(--themeColor);
+          display: flex;
+          align-items: center;
+          font-size: 2.5rem;
+          font-weight: 700;
+          font-style: var(--headerFont);
+          margin-right: 0.7rem;
+        }
+      }
+    }
+  }
+  
+}

@@ -3,6 +3,7 @@ import "./Header.scss";
 import { shortenAddress } from "../../utils";
 import makeBlockie from "ethereum-blockies-base64";
 import useWeb3Modal from "../../hooks/useWeb3Modal";
+import useCurrentTab from "../../hooks/useCurrentTab";
 
 const Header = () => {
   const {
@@ -11,6 +12,8 @@ const Header = () => {
     loadWeb3Modal,
     logoutOfWeb3Modal,
   } = useWeb3Modal();
+
+  const {tab} = useCurrentTab();
 
   const getAddressTemplate = (address) => {
     if (address) {
@@ -40,7 +43,7 @@ const Header = () => {
   return (
     <div className="Header">
       <div className="header-container">
-        <div className="header-title">Overview</div>
+        <div className="header-title">{tab}</div>
         <div
           className={"wallet-container " + (provider ? "connected" : null)}
           onClick={(e) => (provider ? logoutOfWeb3Modal() : loadWeb3Modal())}

@@ -1,18 +1,10 @@
 import React from "react";
-import "./Overview.scss";
+import "./ManageStake.scss";
+import TextField from "@material-ui/core/TextField";
 
-const Overview = () => {
+const ManageStake = () => {
   return (
-    <div className="Overview">
-      <div className="overview-card">
-        <h2 className="overview-card-title">
-          Make the most of your KEEP tokens by staking them and earning rewards
-          with the token dashboard.
-        </h2>
-        <div className="overview-card-button-container">
-          <button className="staking-button">Start Staking</button>
-        </div>
-      </div>
+    <div className="ManageStake">
       <div className="overview-details">
         <div className="overview-card">
           <div className="overview-card-header">
@@ -31,7 +23,7 @@ const Overview = () => {
               <span>12:20:42:10</span>
             </div>
           </div>
-          <div className="overview-card-button-container">
+          <div className="overview-card-body-container">
             <span>
               <svg
                 className="keep-outline"
@@ -51,9 +43,9 @@ const Overview = () => {
         </div>
         <div className="overview-card">
           <div className="overview-card-header">
-            <h3 className="overview-card-title">Estimated Reward</h3>
+            <h3 className="overview-card-title">Your Stake</h3>
           </div>
-          <div className="overview-card-button-container">
+          <div className="overview-card-body-container">
             <span>
               <svg
                 className="keep-outline"
@@ -72,8 +64,46 @@ const Overview = () => {
           </div>
         </div>
       </div>
+      <div className="overview-details">
+        <div className="overview-card">
+          <div className="overview-card-middle-header">
+            <h3 className="overview-card-title">Deposit Stake</h3>
+          </div>
+          <div className="overview-card-button-container">
+            <TextField
+              label="Stake Amount"
+              variant="filled"
+              placeholder="Enter here KEEP"
+              size="small"
+              type="number"
+              fullWidth
+            />
+          </div>
+          <div className="overview-card-button-container">
+            <button className="staking-button">Deposit</button>
+          </div>
+        </div>
+        <div className="overview-card">
+          <div className="overview-card-middle-header">
+            <h3 className="overview-card-title">Withdraw Stake</h3>
+          </div>
+          <div className="overview-card-button-container">
+            <TextField
+              label="Withdraw Amount"
+              variant="filled"
+              placeholder="Enter here KEEP"
+              size="small"
+              type="number"
+              fullWidth
+            />
+          </div>
+          <div className="overview-card-button-container">
+            <button className="staking-button">Withdraw</button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
 
-export default Overview;
+export default ManageStake;

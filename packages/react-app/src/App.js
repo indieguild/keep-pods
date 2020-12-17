@@ -6,8 +6,10 @@ import Loading from "./components/Loading";
 
 const SideBar = lazy(() => import("./components/SideBar"));
 const Header = lazy(() => import("./components/Header"));
-const Overview = lazy(() => import("./components/Overview"));
 const ErrorBoundary = lazy(() => import("./components/ErrorBoundary"));
+const Overview = lazy(() => import("./components/Overview"));
+const ManageStake = lazy(() => import("./components/ManageStake"));
+const Rewards = lazy(() => import("./components/Rewards"));
 
 function App() {
 
@@ -25,6 +27,24 @@ function App() {
                 render={() => (
                   <ErrorBoundary>
                     <Overview />
+                  </ErrorBoundary>
+                )}
+              />
+              <Route
+                path="/manage-stake"
+                exact
+                render={() => (
+                  <ErrorBoundary>
+                    <ManageStake />
+                  </ErrorBoundary>
+                )}
+              />
+              <Route
+                path="/rewards"
+                exact
+                render={() => (
+                  <ErrorBoundary>
+                    <Rewards />
                   </ErrorBoundary>
                 )}
               />
