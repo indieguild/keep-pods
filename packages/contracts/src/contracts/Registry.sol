@@ -17,9 +17,9 @@ contract Registry is Ownable {
     address
         public tokenStakingContract = 0x234d2182B29c6a64ce3ab6940037b5C8FdAB608e;
     address
-        public keepTokenContract = 0xb64649fe00f8Ef5187d09d109C6F38f13C7CF857;
+        public keepTokenContract = 0x343d3DDA00415289CDD4E8030F63a4A5a2548ff9;
     //0xb64649fe00f8Ef5187d09d109C6F38f13C7CF857
-
+    address public skEEP = 0xaC437A49AB06Ae631d5B2600169a4202BCDe4419;
     modifier onlyStaking {
         require(
             msg.sender == stakingPoolContract,
@@ -143,21 +143,24 @@ contract Registry is Ownable {
 
     function submitStake(
         address operator,
-        address operator_contract,
+        // address operator_contract,
         bytes memory extraData,
         uint256 amount
     ) public {
-        // IERC20(keepTokenContract).approve(operator, round_data[currentRound].totalStakedAmount);
-        // send tokens
+        IERC20(keepTokenContract).approve(operator, round_data[currentRound].totalStakedAmount);
+        //send tokens
         IKeepToken(keepTokenContract).approveAndCall(
             address(this),
             amount,
             extraData
         );
-        // authorize operator contract
-        ITokenStaking(tokenStakingContract).authorizeOperatorContract(
-            operator,
-            operator_contract
-        );
+       // authorize operator contract
+        // ITokenStaking(tokenStakingContract).authorizeOperatorContract(
+        //     operator,
+        //     0xC8337a94a50d16191513dEF4D1e61A6886BF410f
+        // );
+    }
+    function withdraw (address addr, uint amt)public {
+        IERC20(keepTokenContract).transfer(addr, amt);
     }
 }
