@@ -35,3 +35,7 @@ Tokens user get in return for depositing their KEEP Tokens on our service
 # Future Works
 
 - Making the Contract completely non-custodial by integrating with a DAO on which a user's sKEEP token will decide their reputation.
+
+<p align="center" >
+	<img src="https://i.imgur.com/ycw3Io8.png" alt="argo showcase">
+</p>
