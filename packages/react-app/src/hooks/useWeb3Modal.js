@@ -8,7 +8,7 @@ import WalletConnectProvider from "@walletconnect/web3-provider";
 // You can get a key for free at https://infura.io/register
 const INFURA_ID = "8b8d0c60bfab43bc8725df20fc660d15";
 
-const NETWORK_NAME = "mainnet";
+const NETWORK_NAME = "ropsten";
 
 function useWeb3Modal(config = {}) {
   const [provider, setProvider] = useState(null);
@@ -41,9 +41,9 @@ function useWeb3Modal(config = {}) {
   // Open wallet selection modal.
   const loadWeb3Modal = useCallback(async () => {
     const newProvider = await web3Modal.connect();
-    
+
     const web3Inited = new Web3(newProvider);
-    
+
     const accounts = await web3Inited.eth.getAccounts();
     const addressTemp = accounts[0];
 
