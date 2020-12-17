@@ -1,27 +1,20 @@
 pragma solidity >=0.4.22 <0.7.0;
 
-import "@openzeppelin/contracts/token/ERC20/ERC20Burnable.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/access/AccessControl.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20Burnable.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/AccessControl.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/math/SafeMath.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/IERC20.sol";
 
-contract sKeep is ERC20Burnable, Ownable {
+contract sKEEP is ERC20, ERC20Burnable, Ownable {
+    constructor() public ERC20("Staked Keep Token", "sKEEP") {}
 
-    
-    constructor(_owner) ERC20Burnable('Staked Keep Token', 'sKEEP') public {
-        
-    }
-     function mint(address to, uint256 amount) public onlyOwner{
-        // Only owners can mint
-        require(owner, "DOES_NOT_HAVE_MINTER_ROLE");
-
+    function mint(address to, uint256 amount) public onlyOwner {
         _mint(to, amount);
     }
 
-    function burn(address from, uint256 amount) public onlyOwner{
-        // Only owners can burn
-        require(owner, "DOES_NOT_HAVE_BURNER_ROLE");
-
-       _burn(from, amount);
+    function burn(address from, uint256 amount) public onlyOwner {
+        _burn(from, amount);
     }
-  
 }
