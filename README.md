@@ -1,8 +1,10 @@
+<p align="center" ><img src="https://i.imgur.com/ycw3Io8.png" alt="argo showcase"></p>
+
 # Keep Pods
 
 - Keep Pods allow smaller Keep owners to delegate a stake lower than the current minimum Keep stake.
 - It can be combined with others to reach the current minimum stake and run a node.
-- All the Stake is Non-Custodial and Kept in a secure `Escrow Contract`. Users get sKEEP in return of their Keep Token which they can redeem anytime for KEEP tokens.
+- All the Stake is Non-Custodial and Kept in a secure `Escrow Contract`. Users get sKEEP in return of their Keep Token which they can redeem anytime for KEEP tokens
 
 ## Architecture
 
@@ -35,7 +37,3 @@ Tokens user get in return for depositing their KEEP Tokens on our service
 # Future Works
 
 - Making the Contract completely non-custodial by integrating with a DAO on which a user's sKEEP token will decide their reputation.
-
-<p align="center" >
-	<img src="https://i.imgur.com/ycw3Io8.png" alt="argo showcase">
-</p>
