@@ -3,49 +3,74 @@ import { useEffect, useState } from "react";
 import "./ManageStake.scss";
 import TextField from "@material-ui/core/TextField";
 import useWeb3Modal from "../../hooks/useWeb3Modal";
+import { BigNumber } from "@ethersproject/bignumber";
 
 const ManageStake = ({ registryContractInstance, keepContractInstance }) => {
   const [depositStakeAmount, setDepositStakeAmount] = useState(0);
   const [withdrawStakeAmount, setWithdrawStakeAmount] = useState(0);
-  const [currentRoundId, setCurrentPoolId] = useState(0);
+  const [currentRoundId, setCurrentRoundId] = useState(0);
   const [yourStake, setYourStake] = useState(0);
   const [totalPoolStake, setTotalPoolStake] = useState(0);
-  const [poolPeriodLeft, setPoolPeriodLeft] = useState("12:20:42:10");
+  const [poolPeriodLeft, setPoolPeriodLeft] = useState("29:20:42:10");
+  const [userDeposited, setUserDeposited] = useState();
 
-  const { provider } = useWeb3Modal();
+  const { provider, address } = useWeb3Modal();
+  console.log("provierrrrr", provider);
 
   const getPoolId = useCallback(async () => {
-    const roundId = await registryContractInstance.currentPool();
-    console.log("roundId", roundId);
-    setCurrentPoolId(roundId);
-  }, [provider]);
+    if (provider && registryContractInstance) {
+      const roundId = await registryContractInstance.currentRound();
+      console.log("roundId", BigNumber.from(roundId).toString());
+      setCurrentRoundId(BigNumber.from(roundId).toString());
+    }
+  }, [provider, registryContractInstance]);
 
   const getUserStake = useCallback(async () => {
-    const address = "";
-    const userData = await registryContractInstance.round_user_mapping(
-      currentRoundId,
-      address
-    );
-    console.log("userData", userData);
-    // setCurrentPoolId(roundId);
-  }, [provider]);
+    if (provider && registryContractInstance) {
+      const userData = await registryContractInstance.round_user_mapping(
+        currentRoundId,
+        address
+      );
+      console.log("userData", userData);
+      setYourStake(
+        BigNumber.from(userData.deposit)
+          .div(BigNumber.from(10).pow(18))
+          .toString()
+      );
+      if (
+        BigNumber.from(userData.deposit)
+          .div(BigNumber.from(10).pow(18))
+          .toString() == 0
+      ) {
+        setUserDeposited("Not Entered Pool Period");
+      } else {
+        setUserDeposited("Entered Pool Period");
+      }
+    }
+  }, [provider, registryContractInstance]);
 
   const getTotalRoundStake = useCallback(async () => {
-    const roundData = await registryContractInstance.round_data(currentRoundId);
-    console.log("roundData", roundData);
-    // setCurrentPoolId(roundId);
-  }, [provider]);
+    if (provider && registryContractInstance) {
+      console.log("providerasdfffffffffffffff");
+      const roundData = await registryContractInstance.round_data(
+        currentRoundId
+      );
+      console.log("roundData", roundData);
+      setTotalPoolStake(
+        BigNumber.from(roundData.totalStakedAmount)
+          .div(BigNumber.from(10).pow(18))
+          .toString()
+      );
+    }
+  }, [provider, registryContractInstance]);
 
   useEffect(() => {
-    if (provider) {
-      getPoolId();
-      getUserStake();
-      getTotalRoundStake();
-    }
-  }, [getUserStake]);
+    getPoolId();
+    getUserStake();
+    getTotalRoundStake();
+  }, [getUserStake, getPoolId, getTotalRoundStake]);
 
   const depositStakeToPool = async () => {
-    const address = "";
     await registryContractInstance.depositStake(address, depositStakeAmount);
     await keepContractInstance.approve(
       registryContractInstance.address,
@@ -62,7 +87,7 @@ const ManageStake = ({ registryContractInstance, keepContractInstance }) => {
         <div className="overview-card">
           <div className="overview-card-header">
             <h3 className="overview-card-title">
-              Current Pool - {currentRoundId}
+              Current Pool - {currentRoundId + 1}
             </h3>
             <div className="overview-card-time">
               <span>
@@ -99,6 +124,9 @@ const ManageStake = ({ registryContractInstance, keepContractInstance }) => {
         <div className="overview-card">
           <div className="overview-card-header">
             <h3 className="overview-card-title">Your Stake</h3>
+            <div className="overview-card-time">
+              <span>{userDeposited}</span>
+            </div>
           </div>
           <div className="overview-card-body-container">
             <span>

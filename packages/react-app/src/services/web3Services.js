@@ -19,6 +19,8 @@ export const getsKeepContract = async (defaultProvider) => {
     "0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1"
   );
   console.log({ tokenBalance: tokenBalance.toString() });
+
+  return sKeepContractInstance;
 };
 
 export const getKeepContract = async (defaultProvider) => {
@@ -34,24 +36,30 @@ export const getKeepContract = async (defaultProvider) => {
     "0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1"
   );
   console.log({ tokenBalance: tokenBalance.toString() });
+
+  return keepContractInstance;
 };
 
 export const getRegistryContract = async (defaultProvider) => {
-  const sKeepContractInstance = new Contract(
+  const registryContract = new Contract(
     addresses.registryContractAddress,
-    abis.erc20,
+    abis.registry,
     defaultProvider
   );
 
-  console.log("getRegistryContract", sKeepContractInstance);
+  console.log("getRegistryContract", registryContract);
+
+  return registryContract;
 };
 
 export const getStakingPoolContract = async (defaultProvider) => {
-  const sKeepContractInstance = new Contract(
+  const stakingPoolContract = new Contract(
     addresses.stakingPoolContractAddress,
-    abis.erc20,
+    abis.stakingPool,
     defaultProvider
   );
 
-  console.log("sKeepContractInstance", sKeepContractInstance);
+  console.log("stakingPoolContract", stakingPoolContract);
+
+  return stakingPoolContract;
 };
