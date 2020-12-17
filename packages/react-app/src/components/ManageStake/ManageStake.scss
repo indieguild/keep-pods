@@ -1,13 +1,13 @@
 @import "../../styles/mixin";
 
 .ManageStake {
-  z-index: 100;
+  z-index: 2;
   .overview-card {
     box-shadow: 0 4px 4px hsla(0, 0%, 76.9%, 0.3);
     background-color: var(--white);
     padding: 2rem;
     margin-bottom: 1.2rem;
-  
+
     .overview-card-button-container {
       margin-top: 2rem;
       display: flex;
@@ -70,7 +70,7 @@
       .overview-card-body-container {
         display: flex;
         align-items: center;
-        
+
         span {
           color: var(--themeColor);
           display: flex;
@@ -83,5 +83,4 @@
       }
     }
   }
-  
 }

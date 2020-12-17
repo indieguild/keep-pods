@@ -1,14 +1,69 @@
-import React from "react";
+import React, { useCallback } from "react";
+import { useEffect, useState } from "react";
 import "./ManageStake.scss";
 import TextField from "@material-ui/core/TextField";
+import useWeb3Modal from "../../hooks/useWeb3Modal";
 
-const ManageStake = () => {
+const ManageStake = ({ registryContractInstance, keepContractInstance }) => {
+  const [depositStakeAmount, setDepositStakeAmount] = useState(0);
+  const [withdrawStakeAmount, setWithdrawStakeAmount] = useState(0);
+  const [currentRoundId, setCurrentPoolId] = useState(0);
+  const [yourStake, setYourStake] = useState(0);
+  const [totalPoolStake, setTotalPoolStake] = useState(0);
+  const [poolPeriodLeft, setPoolPeriodLeft] = useState("12:20:42:10");
+
+  const { provider } = useWeb3Modal();
+
+  const getPoolId = useCallback(async () => {
+    const roundId = await registryContractInstance.currentPool();
+    console.log("roundId", roundId);
+    setCurrentPoolId(roundId);
+  }, [provider]);
+
+  const getUserStake = useCallback(async () => {
+    const address = "";
+    const userData = await registryContractInstance.round_user_mapping(
+      currentRoundId,
+      address
+    );
+    console.log("userData", userData);
+    // setCurrentPoolId(roundId);
+  }, [provider]);
+
+  const getTotalRoundStake = useCallback(async () => {
+    const roundData = await registryContractInstance.round_data(currentRoundId);
+    console.log("roundData", roundData);
+    // setCurrentPoolId(roundId);
+  }, [provider]);
+
+  useEffect(() => {
+    if (provider) {
+      getPoolId();
+      getUserStake();
+      getTotalRoundStake();
+    }
+  }, [getUserStake]);
+
+  const depositStakeToPool = async () => {
+    const address = "";
+    await registryContractInstance.depositStake(address, depositStakeAmount);
+    await keepContractInstance.approve(
+      registryContractInstance.address,
+      depositStakeAmount
+    );
+    await registryContractInstance.enterNextRound(address);
+  };
+
+  const withdrawStakeFromPool = async () => {};
+
   return (
     <div className="ManageStake">
       <div className="overview-details">
         <div className="overview-card">
           <div className="overview-card-header">
-            <h3 className="overview-card-title">Current Pool</h3>
+            <h3 className="overview-card-title">
+              Current Pool - {currentRoundId}
+            </h3>
             <div className="overview-card-time">
               <span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
@@ -20,7 +75,7 @@ const ManageStake = () => {
                   ></path>
                 </svg>
               </span>
-              <span>12:20:42:10</span>
+              <span>{poolPeriodLeft}</span>
             </div>
           </div>
           <div className="overview-card-body-container">
@@ -38,7 +93,7 @@ const ManageStake = () => {
                 ></path>
               </svg>
             </span>
-            <span>0.0 KEEP</span>
+            <span>{totalPoolStake} KEEP</span>
           </div>
         </div>
         <div className="overview-card">
@@ -60,7 +115,7 @@ const ManageStake = () => {
                 ></path>
               </svg>
             </span>
-            <span>0.0 KEEP</span>
+            <span>{yourStake} KEEP</span>
           </div>
         </div>
       </div>
@@ -77,10 +132,14 @@ const ManageStake = () => {
               size="small"
               type="number"
               fullWidth
+              value={depositStakeAmount}
+              onChange={(e) => setDepositStakeAmount(e.target.value)}
             />
           </div>
           <div className="overview-card-button-container">
-            <button className="staking-button">Deposit</button>
+            <button onClick={depositStakeToPool} className="staking-button">
+              Deposit
+            </button>
           </div>
         </div>
         <div className="overview-card">
@@ -95,10 +154,14 @@ const ManageStake = () => {
               size="small"
               type="number"
               fullWidth
+              value={withdrawStakeAmount}
+              onChange={(e) => setWithdrawStakeAmount(e.target.value)}
             />
           </div>
           <div className="overview-card-button-container">
-            <button className="staking-button">Withdraw</button>
+            <button onClick={withdrawStakeFromPool} className="staking-button">
+              Withdraw
+            </button>
           </div>
         </div>
       </div>
