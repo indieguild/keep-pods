@@ -15,54 +15,52 @@ const ManageStake = ({ registryContractInstance, keepContractInstance }) => {
   const [userDeposited, setUserDeposited] = useState();
 
   const { provider, address } = useWeb3Modal();
-  console.log("provierrrrr", provider);
 
   const getPoolId = useCallback(async () => {
     if (provider && registryContractInstance) {
       const roundId = await registryContractInstance.currentRound();
-      console.log("roundId", BigNumber.from(roundId).toString());
+      // console.log("roundId", BigNumber.from(roundId).toString());
       setCurrentRoundId(BigNumber.from(roundId).toString());
     }
   }, [provider, registryContractInstance]);
 
   const getUserStake = useCallback(async () => {
-    if (provider && registryContractInstance) {
+    if (provider && registryContractInstance && address) {
       const userData = await registryContractInstance.round_user_mapping(
         currentRoundId,
         address
       );
-      console.log("userData", userData);
+      // console.log("userData", userData);
       setYourStake(
         BigNumber.from(userData.deposit)
           .div(BigNumber.from(10).pow(18))
           .toString()
       );
       if (
-        BigNumber.from(userData.deposit)
+        Number.parseInt(BigNumber.from(userData.deposit)
           .div(BigNumber.from(10).pow(18))
-          .toString() == 0
+          .toString()) === 0
       ) {
         setUserDeposited("Not Entered Pool Period");
       } else {
         setUserDeposited("Entered Pool Period");
       }
     }
-  }, [provider, registryContractInstance]);
+  }, [provider, registryContractInstance, currentRoundId, address]);
 
   const getTotalRoundStake = useCallback(async () => {
     if (provider && registryContractInstance) {
-      console.log("providerasdfffffffffffffff");
       const roundData = await registryContractInstance.round_data(
         currentRoundId
       );
-      console.log("roundData", roundData);
+      // console.log("roundData", roundData);
       setTotalPoolStake(
         BigNumber.from(roundData.totalStakedAmount)
           .div(BigNumber.from(10).pow(18))
           .toString()
       );
     }
-  }, [provider, registryContractInstance]);
+  }, [provider, registryContractInstance, currentRoundId]);
 
   useEffect(() => {
     getPoolId();

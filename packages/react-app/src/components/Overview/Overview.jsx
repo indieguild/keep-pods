@@ -1,7 +1,45 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import "./Overview.scss";
+import { useHistory } from "react-router-dom";
+import useWeb3Modal from "../../hooks/useWeb3Modal";
+import { BigNumber } from "@ethersproject/bignumber";
 
-const Overview = () => {
+const Overview = ({ registryContractInstance, keepContractInstance }) => {
+  const history = useHistory();
+
+  const [currentRoundId, setCurrentRoundId] = useState(0);
+  const [totalPoolStake, setTotalPoolStake] = useState(0);
+  const [poolPeriodLeft, setPoolPeriodLeft] = useState("29:20:42:10");
+
+  const { provider } = useWeb3Modal();
+
+  const getPoolId = useCallback(async () => {
+    if (provider && registryContractInstance) {
+      const roundId = await registryContractInstance.currentRound();
+      // console.log("roundId", BigNumber.from(roundId).toString());
+      setCurrentRoundId(Number.parseInt(BigNumber.from(roundId).toString()));
+    }
+  }, [provider, registryContractInstance]);
+
+  const getTotalRoundStake = useCallback(async () => {
+    if (provider && registryContractInstance) {
+      const roundData = await registryContractInstance.round_data(
+        currentRoundId
+      );
+      // console.log("roundData", roundData);
+      setTotalPoolStake(
+        BigNumber.from(roundData.totalStakedAmount)
+          .div(BigNumber.from(10).pow(18))
+          .toString()
+      );
+    }
+  }, [provider, registryContractInstance, currentRoundId]);
+
+  useEffect(() => {
+    getPoolId();
+    getTotalRoundStake();
+  }, [getPoolId, getTotalRoundStake]);
+
   return (
     <div className="Overview">
       <div className="overview-card">
@@ -10,13 +48,18 @@ const Overview = () => {
           with the token dashboard.
         </h2>
         <div className="overview-card-button-container">
-          <button className="staking-button">Start Staking</button>
+          <button
+            className="staking-button"
+            onClick={(e) => history.push("/manage-stake")}
+          >
+            Start Staking
+          </button>
         </div>
       </div>
       <div className="overview-details">
         <div className="overview-card">
           <div className="overview-card-header">
-            <h3 className="overview-card-title">Current Pool</h3>
+            <h3 className="overview-card-title">Current Pool - {currentRoundId + 1}</h3>
             <div className="overview-card-time">
               <span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
@@ -28,7 +71,7 @@ const Overview = () => {
                   ></path>
                 </svg>
               </span>
-              <span>12:20:42:10</span>
+              <span>{poolPeriodLeft}</span>
             </div>
           </div>
           <div className="overview-card-button-container">
@@ -46,7 +89,7 @@ const Overview = () => {
                 ></path>
               </svg>
             </span>
-            <span>0.0 KEEP</span>
+            <span>{totalPoolStake} KEEP</span>
           </div>
         </div>
         <div className="overview-card">
