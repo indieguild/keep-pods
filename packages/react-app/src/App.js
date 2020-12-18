@@ -4,7 +4,11 @@ import "./App.scss";
 
 import Loading from "./components/Loading";
 import useWeb3Modal from "./hooks/useWeb3Modal";
-import { getKeepContract, getRegistryContract } from "./services/web3Services";
+import {
+  getKeepContract,
+  getRegistryContract,
+  getStakingPoolContract,
+} from "./services/web3Services";
 
 const SideBar = lazy(() => import("./components/SideBar"));
 const Header = lazy(() => import("./components/Header"));
@@ -18,16 +22,23 @@ function App() {
     null
   );
   const [keepContractInstance, setKeepContractInstance] = useState(null);
+  const [
+    stakingPoolContractInstance,
+    getStakingPoolContractInstance,
+  ] = useState(null);
 
   const { provider } = useWeb3Modal();
 
   const getContractInstances = useCallback(async () => {
     if (provider) {
-      const registryContract = await getRegistryContract(provider);
-      const keepContract = await getKeepContract(provider);
+      const signer = provider.getSigner();
+      const registryContract = await getRegistryContract(signer);
+      const keepContract = await getKeepContract(signer);
+      const stakingPoolContract = await getStakingPoolContract(signer);
 
       setRegistryContractInstance(registryContract);
       setKeepContractInstance(keepContract);
+      getStakingPoolContractInstance(stakingPoolContract);
     }
   }, [provider]);
 
@@ -51,6 +62,7 @@ function App() {
                     <Overview
                       registryContractInstance={registryContractInstance}
                       keepContractInstance={keepContractInstance}
+                      stakingPoolContractInstance={stakingPoolContractInstance}
                     />
                   </ErrorBoundary>
                 )}
@@ -63,6 +75,7 @@ function App() {
                     <ManageStake
                       registryContractInstance={registryContractInstance}
                       keepContractInstance={keepContractInstance}
+                      stakingPoolContractInstance={stakingPoolContractInstance}
                     />
                   </ErrorBoundary>
                 )}
@@ -75,6 +88,7 @@ function App() {
                     <Rewards
                       registryContractInstance={registryContractInstance}
                       keepContractInstance={keepContractInstance}
+                      stakingPoolContractInstance={stakingPoolContractInstance}
                     />
                   </ErrorBoundary>
                 )}

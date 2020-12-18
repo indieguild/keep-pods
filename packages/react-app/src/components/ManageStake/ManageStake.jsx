@@ -5,7 +5,11 @@ import TextField from "@material-ui/core/TextField";
 import useWeb3Modal from "../../hooks/useWeb3Modal";
 import { BigNumber } from "@ethersproject/bignumber";
 
-const ManageStake = ({ registryContractInstance, keepContractInstance }) => {
+const ManageStake = ({
+  registryContractInstance,
+  keepContractInstance,
+  stakingPoolContractInstance,
+}) => {
   const [depositStakeAmount, setDepositStakeAmount] = useState(0);
   const [withdrawStakeAmount, setWithdrawStakeAmount] = useState(0);
   const [currentRoundId, setCurrentRoundId] = useState(0);
@@ -37,9 +41,11 @@ const ManageStake = ({ registryContractInstance, keepContractInstance }) => {
           .toString()
       );
       if (
-        Number.parseInt(BigNumber.from(userData.deposit)
-          .div(BigNumber.from(10).pow(18))
-          .toString()) === 0
+        Number.parseInt(
+          BigNumber.from(userData.deposit)
+            .div(BigNumber.from(10).pow(18))
+            .toString()
+        ) === 0
       ) {
         setUserDeposited("Not Entered Pool Period");
       } else {
@@ -69,12 +75,29 @@ const ManageStake = ({ registryContractInstance, keepContractInstance }) => {
   }, [getUserStake, getPoolId, getTotalRoundStake]);
 
   const depositStakeToPool = async () => {
-    await registryContractInstance.depositStake(address, depositStakeAmount);
-    await keepContractInstance.approve(
+    const tx1 = await keepContractInstance.approve(
       registryContractInstance.address,
-      depositStakeAmount
+      BigNumber.from(depositStakeAmount).mul(BigNumber.from(10).pow(18))
     );
-    await registryContractInstance.enterNextRound(address);
+    console.log("const tx1 = ", tx1);
+    await tx1.wait();
+    // const tx2 = await registryContractInstance.depositStake(
+    //   address,
+    //   BigNumber.from(depositStakeAmount).mul(BigNumber.from(10).pow(18))
+    // );
+    // await tx2.wait();
+    // console.log("const tx2 = ", tx2);
+    // const tx3 = await registryContractInstance.enterNextRound(address);
+    // await tx3.wait();
+    // console.log("const tx3 = ", tx3);
+    const tx2 = await stakingPoolContractInstance.enterAndDeposit(
+      BigNumber.from(depositStakeAmount).mul(BigNumber.from(10).pow(18))
+    );
+    await tx2.wait();
+
+    getPoolId();
+    getUserStake();
+    getTotalRoundStake();
   };
 
   const withdrawStakeFromPool = async () => {};

@@ -1,11 +1,11 @@
 // This address points to a dummy ERC20 contract deployed on Ethereum Mainnet,
 // Goerli, Kovan, Rinkeby and Ropsten. Replace it with your smart contracts.
 const addresses = {
-  sKeepContractAddress: "0xac437a49ab06ae631d5b2600169a4202bcde4419",
-  stakingPoolContractAddress: "0x68f4dfa41d33ae18f22de5e35a61455fd43239f5",
-  registryContractAddress: "0x2E84232C8DE960936D353343d563502De0b480b5",
+  sKeepContractAddress: "0xBCB388429F009231b528f35CefF26A390Cf0d569",
+  stakingPoolContractAddress: "0x3F01c27e4eAd8803E7E9a10f00ffbA46a657b471",
+  registryContractAddress: "0x9309a65BFD46F7b56B001ACa8A1d5dA61514FF36",
   // Keep Core Contracts
-  keepTokenAddress: "0xb64649fe00f8Ef5187d09d109C6F38f13C7CF857",
+  keepTokenAddress: "0x343d3dda00415289cdd4e8030f63a4a5a2548ff9",
   tokenStakingAddress: "0x234d2182B29c6a64ce3ab6940037b5C8FdAB608e",
 };
 

@@ -16,6 +16,7 @@ function useWeb3Modal(config = {}) {
   const [connected, setConnected] = useState(false);
   const [address, setAddress] = useState(null);
   const [networkId, setNetworkId] = useState(null);
+  const [signer, setSigner] = useState(null);
 
   const {
     autoLoad = true,
@@ -47,9 +48,15 @@ function useWeb3Modal(config = {}) {
     const accounts = await web3Inited.eth.getAccounts();
     const addressTemp = accounts[0];
 
-    const networkIdTemp = await web3Inited.eth.net.getId();
+    // const signer = new ethers.providers.Web3Provider(
+    //   window.ethereum
+    // ).getSigner();
 
-    setProvider(new Web3Provider(newProvider));
+    const networkIdTemp = await web3Inited.eth.net.getId();
+    const web3Provider = new Web3Provider(newProvider);
+
+    setProvider(web3Provider);
+    setSigner(web3Provider.getSigner());
     setWeb3(web3Inited);
     setConnected(true);
     setAddress(addressTemp);
@@ -79,6 +86,7 @@ function useWeb3Modal(config = {}) {
   }, [autoLoad, loadWeb3Modal, web3Modal.cachedProvider, connected]);
 
   return {
+    signer,
     provider,
     web3,
     connected,

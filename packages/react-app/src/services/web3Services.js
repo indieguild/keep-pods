@@ -25,7 +25,7 @@ export const getsKeepContract = async (defaultProvider) => {
 
 export const getKeepContract = async (defaultProvider) => {
   const keepContractInstance = new Contract(
-    addresses.sKeepContractAddress,
+    addresses.keepTokenAddress,
     abis.erc20,
     defaultProvider
   );

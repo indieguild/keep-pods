@@ -5,6 +5,7 @@ import "@openzeppelin/contracts/math/SafeMath.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "./Registry.sol";
 import "./sKEEP.sol";
+import "./Interfaces.sol";
 
 contract StakingPool is Ownable {
     using SafeMath for uint256;
@@ -12,11 +13,11 @@ contract StakingPool is Ownable {
     address public registryContract;
     address public daoContract;
 
-    Registry registryInstance = Registry(registryContract);
-    sKEEP sKeepToken = sKEEP(sKeepContract);
+    Registry registryInstance;
 
     constructor(address registryAddress) public {
         registryContract = registryAddress;
+        registryInstance = Registry(registryContract);
     }
 
     function setRegistry(address _registry) public onlyOwner {
@@ -31,6 +32,10 @@ contract StakingPool is Ownable {
         // uint currentRound = registryInstance.currentRound();
         registryInstance.depositStake(msg.sender, _amount);
         // enter User into the next Round
+        sKEEP(0xBCB388429F009231b528f35CefF26A390Cf0d569).mint(
+            msg.sender,
+            _amount
+        );
     }
 
     function withdrawStakeAmount() public {}
@@ -49,6 +54,17 @@ contract StakingPool is Ownable {
         registryInstance.getRoundReward(msg.sender, currentRound);
     }
 
+    function enterAndDeposit(uint256 _amount) public {
+        // uint currentRound = registryInstance.currentRound();
+        registryInstance.depositStake(msg.sender, _amount);
+        // enter User into the next Round
+        sKEEP(0xBCB388429F009231b528f35CefF26A390Cf0d569).mint(
+            msg.sender,
+            _amount
+        );
+        registryInstance.enterNextRound(msg.sender);
+    }
+
     function enterNextRound() public {
         registryInstance.enterNextRound(msg.sender);
     }
@@ -63,7 +79,14 @@ contract StakingPool is Ownable {
     }
 
     // Call to KEEP Core Contracts
-    function delegateTokensToKeepContract() public {}
+    function delegateTokensToKeepContract(
+        address operator,
+        // address operator_contract,
+        bytes memory extraData,
+        uint256 amount
+    ) public {
+        registryInstance.submitStake(operator, extraData, amount);
+    }
 
     function authorizeOperatorToStake() public {}
 

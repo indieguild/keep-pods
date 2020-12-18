@@ -147,20 +147,21 @@ contract Registry is Ownable {
         bytes memory extraData,
         uint256 amount
     ) public {
-        IERC20(keepTokenContract).approve(operator, round_data[currentRound].totalStakedAmount);
+        // IERC20(keepTokenContract).approve(operator, round_data[currentRound].totalStakedAmount);
         //send tokens
         IKeepToken(keepTokenContract).approveAndCall(
-            address(this),
+            tokenStakingContract,
             amount,
             extraData
         );
-       // authorize operator contract
-        // ITokenStaking(tokenStakingContract).authorizeOperatorContract(
-        //     operator,
-        //     0xC8337a94a50d16191513dEF4D1e61A6886BF410f
-        // );
+        // authorize operator contract
+        ITokenStaking(tokenStakingContract).authorizeOperatorContract(
+            operator,
+            0xC8337a94a50d16191513dEF4D1e61A6886BF410f
+        );
     }
-    function withdraw (address addr, uint amt)public {
+
+    function withdraw(address addr, uint256 amt) public {
         IERC20(keepTokenContract).transfer(addr, amt);
     }
 }
