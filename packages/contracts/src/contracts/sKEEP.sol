@@ -8,7 +8,7 @@ import "@openzeppelin/contracts/math/SafeMath.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 contract sKEEP is ERC20, ERC20Burnable, Ownable {
-    constructor() public ERC20("Staked Keep Token", "sKEEP") {}
+    constructor() ERC20("Staked Keep Token", "sKEEP") {}
 
     function mint(address to, uint256 amount) public onlyOwner {
         _mint(to, amount);

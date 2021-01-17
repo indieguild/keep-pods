@@ -1,0 +1,1878 @@
+{
+  "contractName": "StakingPoolStorageV1",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "currentRound",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "keepBalance",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "keepRandomBeaconOperatorContract",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "keepTokenContract",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "previousRoundReward",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "round_data",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "totalStakedAmount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "totalRoundReward",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "balanceRoundReward",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "balanceStakedAmount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "totalUsersPooled",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "withdrawAllowed",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "depositAllowed",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "round_user_mapping",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "deposit",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "timestamp",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "rewardWithdrawn",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "skEEP",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "stakingPoolContract",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "tokenStakingContract",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "user_details",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "totalUserReward",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "totalUserStake",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "staked",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.7.1+commit.f4a555be\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"currentRound\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"keepBalance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"keepRandomBeaconOperatorContract\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"keepTokenContract\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"previousRoundReward\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"round_data\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"totalStakedAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"totalRoundReward\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"balanceRoundReward\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"balanceStakedAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"totalUsersPooled\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"withdrawAllowed\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"depositAllowed\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"round_user_mapping\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"deposit\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"rewardWithdrawn\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"skEEP\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"stakingPoolContract\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"tokenStakingContract\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"user_details\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"totalUserReward\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"totalUserStake\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"staked\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/manjain/Documents/keep-pods/packages/contracts/src/contracts/StakingPoolStorage.sol\":\"StakingPoolStorageV1\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/manjain/Documents/keep-pods/packages/contracts/src/contracts/StakingPoolStorage.sol\":{\"keccak256\":\"0x6bc96bfd2de9c8ec9258c712f7b7a9bb3cd843f0574b8ecb19c94f415a8625f1\",\"urls\":[\"bzz-raw://05e0c0465831a2cd0b1d016cf3078ad01ce7b17bfba035a3dbef0f1f08ae690b\",\"dweb:/ipfs/QmZdVSWCcLqaPF7aPwYVbkS3q5SHonHpVxwhzY3AvtaBFq\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50610547806100206000396000f3fe608060405234801561001057600080fd5b50600436106100a95760003560e01c80638a09bbc8116100715780638a09bbc8146101d85780638a19c8bc1461020c57806394ef09f61461022a578063b98b99df14610248578063e128a991146102ba578063ef9dfa5714610322576100a9565b80631c884159146100ae5780632a9535ff146100e257806352917ed7146101165780636cf5421214610134578063815a53d814610168575b600080fd5b6100b6610356565b604051808273ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100ea61037c565b604051808273ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b61011e6103a2565b6040518082815260200191505060405180910390f35b61013c6103a8565b604051808273ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6101946004803603602081101561017e57600080fd5b81019080803590602001909291905050506103cc565b604051808881526020018781526020018681526020018581526020018481526020018315158152602001821515815260200197505050505050505060405180910390f35b6101e0610435565b604051808273ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b61021461045b565b6040518082815260200191505060405180910390f35b610232610461565b6040518082815260200191505060405180910390f35b6102946004803603604081101561025e57600080fd5b8101908080359060200190929190803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610467565b604051808481526020018381526020018215158152602001935050505060405180910390f35b6102fc600480360360208110156102d057600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506104b4565b604051808481526020018381526020018215158152602001935050505060405180910390f35b61032a6104eb565b604051808273ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600760009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60065481565b60008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600881815481106103d957fe5b90600052602060002090600602016000915090508060000154908060010154908060020154908060030154908060040154908060050160009054906101000a900460ff16908060050160019054906101000a900460ff16905087565b600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60045481565b60055481565b6009828154811061047457fe5b90600052602060002001602052806000526040600020600091509150508060000154908060010154908060020160009054906101000a900460ff16905083565b600a6020528060005260406000206000915090508060000154908060010154908060020160009054906101000a900460ff16905083565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea2646970667358221220cd53b8db426fcabc6c722f3abf64e537e4e2196ad2d822197ca56a8b33112a4e64736f6c63430007010033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100a95760003560e01c80638a09bbc8116100715780638a09bbc8146101d85780638a19c8bc1461020c57806394ef09f61461022a578063b98b99df14610248578063e128a991146102ba578063ef9dfa5714610322576100a9565b80631c884159146100ae5780632a9535ff146100e257806352917ed7146101165780636cf5421214610134578063815a53d814610168575b600080fd5b6100b6610356565b604051808273ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100ea61037c565b604051808273ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b61011e6103a2565b6040518082815260200191505060405180910390f35b61013c6103a8565b604051808273ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6101946004803603602081101561017e57600080fd5b81019080803590602001909291905050506103cc565b604051808881526020018781526020018681526020018581526020018481526020018315158152602001821515815260200197505050505050505060405180910390f35b6101e0610435565b604051808273ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b61021461045b565b6040518082815260200191505060405180910390f35b610232610461565b6040518082815260200191505060405180910390f35b6102946004803603604081101561025e57600080fd5b8101908080359060200190929190803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610467565b604051808481526020018381526020018215158152602001935050505060405180910390f35b6102fc600480360360208110156102d057600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506104b4565b604051808481526020018381526020018215158152602001935050505060405180910390f35b61032a6104eb565b604051808273ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600760009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60065481565b60008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600881815481106103d957fe5b90600052602060002090600602016000915090508060000154908060010154908060020154908060030154908060040154908060050160009054906101000a900460ff16908060050160019054906101000a900460ff16905087565b600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60045481565b60055481565b6009828154811061047457fe5b90600052602060002001602052806000526040600020600091509150508060000154908060010154908060020160009054906101000a900460ff16905083565b600a6020528060005260406000206000915090508060000154908060010154908060020160009054906101000a900460ff16905083565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea2646970667358221220cd53b8db426fcabc6c722f3abf64e537e4e2196ad2d822197ca56a8b33112a4e64736f6c63430007010033",
+  "immutableReferences": {},
+  "sourceMap": "579:885:4:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "579:885:4:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;501:20;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;749:34;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;708;;;:::i;:::-;;;;;;;;;;;;;;;;;;;422:35;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;1312:25;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;527:47;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;641:27;;;:::i;:::-;;;;;;;;;;;;;;;;;;;675:26;;;:::i;:::-;;;;;;;;;;;;;;;;;;;1348:57;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1412:49;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;463:32;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;501:20;;;;;;;;;;;;;:::o;749:34::-;;;;;;;;;;;;;:::o;708:::-;;;;:::o;422:35::-;;;;;;;;;;;;:::o;1312:25::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;527:47::-;;;;;;;;;;;;;:::o;641:27::-;;;;:::o;675:26::-;;;;:::o;1348:57::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;1412:49::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;463:32::-;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity >=0.6.0 <0.8.0;\n\ncontract StakingPoolStorageAdmin {\n    // address public tokenStakingContract = 0x234d2182B29c6a64ce3ab6940037b5C8FdAB608e;\n    // address public keepTokenContract = 0x343d3DDA00415289CDD4E8030F63a4A5a2548ff9;\n    // address public skEEP = 0xaC437A49AB06Ae631d5B2600169a4202BCDe4419;\n    // address public keepRandomBeaconOperatorContract = 0xC8337a94a50d16191513dEF4D1e61A6886BF410f;\n    address public tokenStakingContract;\n    address public keepTokenContract;\n    address public skEEP;\n    address public keepRandomBeaconOperatorContract;\n}\n\ncontract StakingPoolStorageV1 is StakingPoolStorageAdmin{\n    uint256 public currentRound;\n\n    uint256 public keepBalance;\n\n    uint256 public previousRoundReward;\n\n    address public stakingPoolContract;\n    \n    struct UserTotal {\n        uint256 totalUserReward;\n        uint256 totalUserStake;\n        bool staked;\n    }\n\n    struct UserRound {\n        uint256 deposit;\n        uint256 timestamp;\n        bool rewardWithdrawn;\n    }\n\n    struct Round {\n        uint256 totalStakedAmount;\n        uint256 totalRoundReward;\n        uint256 balanceRoundReward;\n        uint256 balanceStakedAmount;\n        uint256 totalUsersPooled; // Number of Users Deposited\n        bool withdrawAllowed;\n        bool depositAllowed;\n    }\n\n    Round[] public round_data;\n    \n    mapping(address => UserRound)[] public round_user_mapping;\n\n    mapping(address => UserTotal) public user_details;\n}",
+  "sourcePath": "/home/manjain/Documents/keep-pods/packages/contracts/src/contracts/StakingPoolStorage.sol",
+  "ast": {
+    "absolutePath": "/home/manjain/Documents/keep-pods/packages/contracts/src/contracts/StakingPoolStorage.sol",
+    "exportedSymbols": {
+      "StakingPoolStorageAdmin": [
+        519
+      ],
+      "StakingPoolStorageV1": [
+        571
+      ]
+    },
+    "id": 572,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 510,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.6",
+          ".0",
+          "<",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:31:4"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 519,
+        "linearizedBaseContracts": [
+          519
+        ],
+        "name": "StakingPoolStorageAdmin",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "functionSelector": "6cf54212",
+            "id": 512,
+            "mutability": "mutable",
+            "name": "tokenStakingContract",
+            "nodeType": "VariableDeclaration",
+            "scope": 519,
+            "src": "422:35:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 511,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "422:7:4",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "ef9dfa57",
+            "id": 514,
+            "mutability": "mutable",
+            "name": "keepTokenContract",
+            "nodeType": "VariableDeclaration",
+            "scope": 519,
+            "src": "463:32:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 513,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "463:7:4",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "1c884159",
+            "id": 516,
+            "mutability": "mutable",
+            "name": "skEEP",
+            "nodeType": "VariableDeclaration",
+            "scope": 519,
+            "src": "501:20:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 515,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "501:7:4",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "8a09bbc8",
+            "id": 518,
+            "mutability": "mutable",
+            "name": "keepRandomBeaconOperatorContract",
+            "nodeType": "VariableDeclaration",
+            "scope": 519,
+            "src": "527:47:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 517,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "527:7:4",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "visibility": "public"
+          }
+        ],
+        "scope": 572,
+        "src": "33:544:4"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 520,
+              "name": "StakingPoolStorageAdmin",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 519,
+              "src": "612:23:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_StakingPoolStorageAdmin_$519",
+                "typeString": "contract StakingPoolStorageAdmin"
+              }
+            },
+            "id": 521,
+            "nodeType": "InheritanceSpecifier",
+            "src": "612:23:4"
+          }
+        ],
+        "contractDependencies": [
+          519
+        ],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 571,
+        "linearizedBaseContracts": [
+          571,
+          519
+        ],
+        "name": "StakingPoolStorageV1",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "functionSelector": "8a19c8bc",
+            "id": 523,
+            "mutability": "mutable",
+            "name": "currentRound",
+            "nodeType": "VariableDeclaration",
+            "scope": 571,
+            "src": "641:27:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 522,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "641:7:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "94ef09f6",
+            "id": 525,
+            "mutability": "mutable",
+            "name": "keepBalance",
+            "nodeType": "VariableDeclaration",
+            "scope": 571,
+            "src": "675:26:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 524,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "675:7:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "52917ed7",
+            "id": 527,
+            "mutability": "mutable",
+            "name": "previousRoundReward",
+            "nodeType": "VariableDeclaration",
+            "scope": 571,
+            "src": "708:34:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 526,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "708:7:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "2a9535ff",
+            "id": 529,
+            "mutability": "mutable",
+            "name": "stakingPoolContract",
+            "nodeType": "VariableDeclaration",
+            "scope": 571,
+            "src": "749:34:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 528,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "749:7:4",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "StakingPoolStorageV1.UserTotal",
+            "id": 536,
+            "members": [
+              {
+                "constant": false,
+                "id": 531,
+                "mutability": "mutable",
+                "name": "totalUserReward",
+                "nodeType": "VariableDeclaration",
+                "scope": 536,
+                "src": "821:23:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 530,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "821:7:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 533,
+                "mutability": "mutable",
+                "name": "totalUserStake",
+                "nodeType": "VariableDeclaration",
+                "scope": 536,
+                "src": "854:22:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 532,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "854:7:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 535,
+                "mutability": "mutable",
+                "name": "staked",
+                "nodeType": "VariableDeclaration",
+                "scope": 536,
+                "src": "886:11:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 534,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "886:4:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "UserTotal",
+            "nodeType": "StructDefinition",
+            "scope": 571,
+            "src": "794:110:4",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "StakingPoolStorageV1.UserRound",
+            "id": 543,
+            "members": [
+              {
+                "constant": false,
+                "id": 538,
+                "mutability": "mutable",
+                "name": "deposit",
+                "nodeType": "VariableDeclaration",
+                "scope": 543,
+                "src": "937:15:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 537,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "937:7:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 540,
+                "mutability": "mutable",
+                "name": "timestamp",
+                "nodeType": "VariableDeclaration",
+                "scope": 543,
+                "src": "962:17:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 539,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "962:7:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 542,
+                "mutability": "mutable",
+                "name": "rewardWithdrawn",
+                "nodeType": "VariableDeclaration",
+                "scope": 543,
+                "src": "989:20:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 541,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "989:4:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "UserRound",
+            "nodeType": "StructDefinition",
+            "scope": 571,
+            "src": "910:106:4",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "StakingPoolStorageV1.Round",
+            "id": 558,
+            "members": [
+              {
+                "constant": false,
+                "id": 545,
+                "mutability": "mutable",
+                "name": "totalStakedAmount",
+                "nodeType": "VariableDeclaration",
+                "scope": 558,
+                "src": "1045:25:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 544,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1045:7:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 547,
+                "mutability": "mutable",
+                "name": "totalRoundReward",
+                "nodeType": "VariableDeclaration",
+                "scope": 558,
+                "src": "1080:24:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 546,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1080:7:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 549,
+                "mutability": "mutable",
+                "name": "balanceRoundReward",
+                "nodeType": "VariableDeclaration",
+                "scope": 558,
+                "src": "1114:26:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 548,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1114:7:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 551,
+                "mutability": "mutable",
+                "name": "balanceStakedAmount",
+                "nodeType": "VariableDeclaration",
+                "scope": 558,
+                "src": "1150:27:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 550,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1150:7:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 553,
+                "mutability": "mutable",
+                "name": "totalUsersPooled",
+                "nodeType": "VariableDeclaration",
+                "scope": 558,
+                "src": "1187:24:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 552,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1187:7:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 555,
+                "mutability": "mutable",
+                "name": "withdrawAllowed",
+                "nodeType": "VariableDeclaration",
+                "scope": 558,
+                "src": "1250:20:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 554,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1250:4:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 557,
+                "mutability": "mutable",
+                "name": "depositAllowed",
+                "nodeType": "VariableDeclaration",
+                "scope": 558,
+                "src": "1280:19:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 556,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1280:4:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Round",
+            "nodeType": "StructDefinition",
+            "scope": 571,
+            "src": "1022:284:4",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "815a53d8",
+            "id": 561,
+            "mutability": "mutable",
+            "name": "round_data",
+            "nodeType": "VariableDeclaration",
+            "scope": 571,
+            "src": "1312:25:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_struct$_Round_$558_storage_$dyn_storage",
+              "typeString": "struct StakingPoolStorageV1.Round[]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 559,
+                "name": "Round",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 558,
+                "src": "1312:5:4",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Round_$558_storage_ptr",
+                  "typeString": "struct StakingPoolStorageV1.Round"
+                }
+              },
+              "id": 560,
+              "nodeType": "ArrayTypeName",
+              "src": "1312:7:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_struct$_Round_$558_storage_$dyn_storage_ptr",
+                "typeString": "struct StakingPoolStorageV1.Round[]"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "b98b99df",
+            "id": 566,
+            "mutability": "mutable",
+            "name": "round_user_mapping",
+            "nodeType": "VariableDeclaration",
+            "scope": 571,
+            "src": "1348:57:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_mapping$_t_address_$_t_struct$_UserRound_$543_storage_$_$dyn_storage",
+              "typeString": "mapping(address => struct StakingPoolStorageV1.UserRound)[]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 564,
+                "keyType": {
+                  "id": 562,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1356:7:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "nodeType": "Mapping",
+                "src": "1348:29:4",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_struct$_UserRound_$543_storage_$",
+                  "typeString": "mapping(address => struct StakingPoolStorageV1.UserRound)"
+                },
+                "valueType": {
+                  "id": 563,
+                  "name": "UserRound",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 543,
+                  "src": "1367:9:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_UserRound_$543_storage_ptr",
+                    "typeString": "struct StakingPoolStorageV1.UserRound"
+                  }
+                }
+              },
+              "id": 565,
+              "nodeType": "ArrayTypeName",
+              "src": "1348:31:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_mapping$_t_address_$_t_struct$_UserRound_$543_storage_$_$dyn_storage_ptr",
+                "typeString": "mapping(address => struct StakingPoolStorageV1.UserRound)[]"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "e128a991",
+            "id": 570,
+            "mutability": "mutable",
+            "name": "user_details",
+            "nodeType": "VariableDeclaration",
+            "scope": 571,
+            "src": "1412:49:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_UserTotal_$536_storage_$",
+              "typeString": "mapping(address => struct StakingPoolStorageV1.UserTotal)"
+            },
+            "typeName": {
+              "id": 569,
+              "keyType": {
+                "id": 567,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "1420:7:4",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "1412:29:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_UserTotal_$536_storage_$",
+                "typeString": "mapping(address => struct StakingPoolStorageV1.UserTotal)"
+              },
+              "valueType": {
+                "id": 568,
+                "name": "UserTotal",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 536,
+                "src": "1431:9:4",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_UserTotal_$536_storage_ptr",
+                  "typeString": "struct StakingPoolStorageV1.UserTotal"
+                }
+              }
+            },
+            "visibility": "public"
+          }
+        ],
+        "scope": 572,
+        "src": "579:885:4"
+      }
+    ],
+    "src": "0:1464:4"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/manjain/Documents/keep-pods/packages/contracts/src/contracts/StakingPoolStorage.sol",
+    "exportedSymbols": {
+      "StakingPoolStorageAdmin": [
+        519
+      ],
+      "StakingPoolStorageV1": [
+        571
+      ]
+    },
+    "id": 572,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 510,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.6",
+          ".0",
+          "<",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:31:4"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 519,
+        "linearizedBaseContracts": [
+          519
+        ],
+        "name": "StakingPoolStorageAdmin",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "functionSelector": "6cf54212",
+            "id": 512,
+            "mutability": "mutable",
+            "name": "tokenStakingContract",
+            "nodeType": "VariableDeclaration",
+            "scope": 519,
+            "src": "422:35:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 511,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "422:7:4",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "ef9dfa57",
+            "id": 514,
+            "mutability": "mutable",
+            "name": "keepTokenContract",
+            "nodeType": "VariableDeclaration",
+            "scope": 519,
+            "src": "463:32:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 513,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "463:7:4",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "1c884159",
+            "id": 516,
+            "mutability": "mutable",
+            "name": "skEEP",
+            "nodeType": "VariableDeclaration",
+            "scope": 519,
+            "src": "501:20:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 515,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "501:7:4",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "8a09bbc8",
+            "id": 518,
+            "mutability": "mutable",
+            "name": "keepRandomBeaconOperatorContract",
+            "nodeType": "VariableDeclaration",
+            "scope": 519,
+            "src": "527:47:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 517,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "527:7:4",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "visibility": "public"
+          }
+        ],
+        "scope": 572,
+        "src": "33:544:4"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 520,
+              "name": "StakingPoolStorageAdmin",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 519,
+              "src": "612:23:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_StakingPoolStorageAdmin_$519",
+                "typeString": "contract StakingPoolStorageAdmin"
+              }
+            },
+            "id": 521,
+            "nodeType": "InheritanceSpecifier",
+            "src": "612:23:4"
+          }
+        ],
+        "contractDependencies": [
+          519
+        ],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 571,
+        "linearizedBaseContracts": [
+          571,
+          519
+        ],
+        "name": "StakingPoolStorageV1",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "functionSelector": "8a19c8bc",
+            "id": 523,
+            "mutability": "mutable",
+            "name": "currentRound",
+            "nodeType": "VariableDeclaration",
+            "scope": 571,
+            "src": "641:27:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 522,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "641:7:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "94ef09f6",
+            "id": 525,
+            "mutability": "mutable",
+            "name": "keepBalance",
+            "nodeType": "VariableDeclaration",
+            "scope": 571,
+            "src": "675:26:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 524,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "675:7:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "52917ed7",
+            "id": 527,
+            "mutability": "mutable",
+            "name": "previousRoundReward",
+            "nodeType": "VariableDeclaration",
+            "scope": 571,
+            "src": "708:34:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 526,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "708:7:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "2a9535ff",
+            "id": 529,
+            "mutability": "mutable",
+            "name": "stakingPoolContract",
+            "nodeType": "VariableDeclaration",
+            "scope": 571,
+            "src": "749:34:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 528,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "749:7:4",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "StakingPoolStorageV1.UserTotal",
+            "id": 536,
+            "members": [
+              {
+                "constant": false,
+                "id": 531,
+                "mutability": "mutable",
+                "name": "totalUserReward",
+                "nodeType": "VariableDeclaration",
+                "scope": 536,
+                "src": "821:23:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 530,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "821:7:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 533,
+                "mutability": "mutable",
+                "name": "totalUserStake",
+                "nodeType": "VariableDeclaration",
+                "scope": 536,
+                "src": "854:22:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 532,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "854:7:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 535,
+                "mutability": "mutable",
+                "name": "staked",
+                "nodeType": "VariableDeclaration",
+                "scope": 536,
+                "src": "886:11:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 534,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "886:4:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "UserTotal",
+            "nodeType": "StructDefinition",
+            "scope": 571,
+            "src": "794:110:4",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "StakingPoolStorageV1.UserRound",
+            "id": 543,
+            "members": [
+              {
+                "constant": false,
+                "id": 538,
+                "mutability": "mutable",
+                "name": "deposit",
+                "nodeType": "VariableDeclaration",
+                "scope": 543,
+                "src": "937:15:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 537,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "937:7:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 540,
+                "mutability": "mutable",
+                "name": "timestamp",
+                "nodeType": "VariableDeclaration",
+                "scope": 543,
+                "src": "962:17:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 539,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "962:7:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 542,
+                "mutability": "mutable",
+                "name": "rewardWithdrawn",
+                "nodeType": "VariableDeclaration",
+                "scope": 543,
+                "src": "989:20:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 541,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "989:4:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "UserRound",
+            "nodeType": "StructDefinition",
+            "scope": 571,
+            "src": "910:106:4",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "StakingPoolStorageV1.Round",
+            "id": 558,
+            "members": [
+              {
+                "constant": false,
+                "id": 545,
+                "mutability": "mutable",
+                "name": "totalStakedAmount",
+                "nodeType": "VariableDeclaration",
+                "scope": 558,
+                "src": "1045:25:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 544,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1045:7:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 547,
+                "mutability": "mutable",
+                "name": "totalRoundReward",
+                "nodeType": "VariableDeclaration",
+                "scope": 558,
+                "src": "1080:24:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 546,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1080:7:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 549,
+                "mutability": "mutable",
+                "name": "balanceRoundReward",
+                "nodeType": "VariableDeclaration",
+                "scope": 558,
+                "src": "1114:26:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 548,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1114:7:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 551,
+                "mutability": "mutable",
+                "name": "balanceStakedAmount",
+                "nodeType": "VariableDeclaration",
+                "scope": 558,
+                "src": "1150:27:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 550,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1150:7:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 553,
+                "mutability": "mutable",
+                "name": "totalUsersPooled",
+                "nodeType": "VariableDeclaration",
+                "scope": 558,
+                "src": "1187:24:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 552,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1187:7:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 555,
+                "mutability": "mutable",
+                "name": "withdrawAllowed",
+                "nodeType": "VariableDeclaration",
+                "scope": 558,
+                "src": "1250:20:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 554,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1250:4:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 557,
+                "mutability": "mutable",
+                "name": "depositAllowed",
+                "nodeType": "VariableDeclaration",
+                "scope": 558,
+                "src": "1280:19:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 556,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1280:4:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Round",
+            "nodeType": "StructDefinition",
+            "scope": 571,
+            "src": "1022:284:4",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "815a53d8",
+            "id": 561,
+            "mutability": "mutable",
+            "name": "round_data",
+            "nodeType": "VariableDeclaration",
+            "scope": 571,
+            "src": "1312:25:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_struct$_Round_$558_storage_$dyn_storage",
+              "typeString": "struct StakingPoolStorageV1.Round[]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 559,
+                "name": "Round",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 558,
+                "src": "1312:5:4",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Round_$558_storage_ptr",
+                  "typeString": "struct StakingPoolStorageV1.Round"
+                }
+              },
+              "id": 560,
+              "nodeType": "ArrayTypeName",
+              "src": "1312:7:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_struct$_Round_$558_storage_$dyn_storage_ptr",
+                "typeString": "struct StakingPoolStorageV1.Round[]"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "b98b99df",
+            "id": 566,
+            "mutability": "mutable",
+            "name": "round_user_mapping",
+            "nodeType": "VariableDeclaration",
+            "scope": 571,
+            "src": "1348:57:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_mapping$_t_address_$_t_struct$_UserRound_$543_storage_$_$dyn_storage",
+              "typeString": "mapping(address => struct StakingPoolStorageV1.UserRound)[]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 564,
+                "keyType": {
+                  "id": 562,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1356:7:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "nodeType": "Mapping",
+                "src": "1348:29:4",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_struct$_UserRound_$543_storage_$",
+                  "typeString": "mapping(address => struct StakingPoolStorageV1.UserRound)"
+                },
+                "valueType": {
+                  "id": 563,
+                  "name": "UserRound",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 543,
+                  "src": "1367:9:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_UserRound_$543_storage_ptr",
+                    "typeString": "struct StakingPoolStorageV1.UserRound"
+                  }
+                }
+              },
+              "id": 565,
+              "nodeType": "ArrayTypeName",
+              "src": "1348:31:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_mapping$_t_address_$_t_struct$_UserRound_$543_storage_$_$dyn_storage_ptr",
+                "typeString": "mapping(address => struct StakingPoolStorageV1.UserRound)[]"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "e128a991",
+            "id": 570,
+            "mutability": "mutable",
+            "name": "user_details",
+            "nodeType": "VariableDeclaration",
+            "scope": 571,
+            "src": "1412:49:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_UserTotal_$536_storage_$",
+              "typeString": "mapping(address => struct StakingPoolStorageV1.UserTotal)"
+            },
+            "typeName": {
+              "id": 569,
+              "keyType": {
+                "id": 567,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "1420:7:4",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "1412:29:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_UserTotal_$536_storage_$",
+                "typeString": "mapping(address => struct StakingPoolStorageV1.UserTotal)"
+              },
+              "valueType": {
+                "id": 568,
+                "name": "UserTotal",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 536,
+                "src": "1431:9:4",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_UserTotal_$536_storage_ptr",
+                  "typeString": "struct StakingPoolStorageV1.UserTotal"
+                }
+              }
+            },
+            "visibility": "public"
+          }
+        ],
+        "scope": 572,
+        "src": "579:885:4"
+      }
+    ],
+    "src": "0:1464:4"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.7.1+commit.f4a555be.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.2.0",
+  "updatedAt": "2021-01-17T21:38:41.375Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

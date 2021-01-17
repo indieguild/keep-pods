@@ -1,94 +1,122 @@
-pragma solidity >=0.4.22 <0.8.0;
+pragma solidity >=0.6.0 <0.8.0;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/math/SafeMath.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
-import "./Registry.sol";
 import "./sKEEP.sol";
+import "./StakingPoolStorage.sol";
 import "./Interfaces.sol";
 
-contract StakingPool is Ownable {
-    using SafeMath for uint256;
-    address public sKeepContract;
-    address public registryContract;
-    address public daoContract;
+contract StakingPool is StakingPoolStorageV1 {
 
-    Registry registryInstance;
-
-    constructor(address registryAddress) public {
-        registryContract = registryAddress;
-        registryInstance = Registry(registryContract);
+    using SafeMath for uint;
+    
+    function transferRoundReward(address user, uint256 round) public {
+        uint256 _stake = round_user_mapping[round][user].deposit;
+        uint256 _totalStake = round_data[round].totalStakedAmount;
+        uint256 _userReward = round_data[round]
+            .totalRoundReward
+            .mul(_stake)
+            .div(_totalStake);
+        round_data[round].balanceRoundReward = round_data[round]
+            .balanceRoundReward
+            .sub(_userReward);
+        round_user_mapping[round][user].rewardWithdrawn = true;
+        //substract from total user reward
+        IERC20(keepTokenContract).transfer(user, _userReward);
     }
 
-    function setRegistry(address _registry) public onlyOwner {
-        registryContract = _registry;
+    function getRoundReward(address user, uint256 round)
+        public
+        view
+        returns (uint256)
+    {
+        uint256 _stake = round_user_mapping[round][user].deposit;
+        uint256 _totalStake = round_data[round].totalStakedAmount;
+        uint256 _userReward = round_data[round]
+            .totalRoundReward
+            .mul(_stake)
+            .div(_totalStake);
+
+        return _userReward;
     }
 
-    function setKeep(address _keepToken) public onlyOwner {
-        sKeepContract = _keepToken;
-    }
-
-    function depositTokenForNextRound(uint256 _amount) public {
-        // uint currentRound = registryInstance.currentRound();
-        registryInstance.depositStake(msg.sender, _amount);
-        // enter User into the next Round
-        sKEEP(0xBCB388429F009231b528f35CefF26A390Cf0d569).mint(
+    function depositStake(address user, uint256 amount) public {
+        IERC20(keepTokenContract).transferFrom(user, address(this), amount);
+        if (user_details[user].totalUserStake != 0) {
+            user_details[user].totalUserStake = user_details[user]
+                .totalUserStake
+                .add(amount);
+        } else {
+            user_details[user] = UserTotal({
+                totalUserReward: 0,
+                totalUserStake: amount,
+                staked: false
+            });
+        }
+        sKEEP(skEEP).mint(
             msg.sender,
-            _amount
+            amount
         );
     }
 
-    function withdrawStakeAmount() public {}
-
-    function withdrawStakeWithRewards() public {}
-
-    function withdrawRewardsForPreviousRound() public {
-        uint256 currentRound = registryInstance.currentRound();
-        registryInstance.transferRoundReward(msg.sender, currentRound);
+    function enterNextRound(address user) public {
+        require(user_details[user].staked == false, "Already staked");
+        round_data[currentRound].totalStakedAmount = round_data[currentRound]
+            .totalStakedAmount
+            .add(user_details[user].totalUserStake);
+        round_data[currentRound].balanceStakedAmount = round_data[currentRound]
+            .balanceStakedAmount
+            .add(user_details[user].totalUserStake);
+        round_user_mapping[currentRound][user].deposit = user_details[user]
+            .totalUserStake;
+        user_details[user].staked = true;
     }
 
-    function withdrawRewardsForAllRounds() public {}
-
-    function getRewardForPreviousRound() public view {
-        uint256 currentRound = registryInstance.currentRound();
-        registryInstance.getRoundReward(msg.sender, currentRound);
+    function setLatestRoundReward(uint256 _newReward) public {
+        round_data[currentRound].totalRoundReward = _newReward;
+        previousRoundReward = _newReward;
     }
 
-    function enterAndDeposit(uint256 _amount) public {
-        // uint currentRound = registryInstance.currentRound();
-        registryInstance.depositStake(msg.sender, _amount);
-        // enter User into the next Round
-        sKEEP(0xBCB388429F009231b528f35CefF26A390Cf0d569).mint(
-            msg.sender,
-            _amount
-        );
-        registryInstance.enterNextRound(msg.sender);
+    function setNewStakingPoolContract(address _newPoolContract) public {
+        stakingPoolContract = _newPoolContract;
     }
 
-    function enterNextRound() public {
-        registryInstance.enterNextRound(msg.sender);
-    }
-
-    function endCurrentRound() public {
-        uint256 ongoingRoundReward = 0;
-        registryInstance.endCurrentRound(ongoingRoundReward);
+    function endCurrentRound(uint256 ongoingRoundReward) public {
+        previousRoundReward = ongoingRoundReward;
+        round_data[currentRound].withdrawAllowed = true;
+        round_data[currentRound].totalRoundReward = ongoingRoundReward;
     }
 
     function startNewRound() public {
-        registryInstance.startNewRound();
+        if (round_data.length == 0) {
+            currentRound = 0;
+        } else {
+            currentRound = currentRound + 1;
+        }
+        Round memory round = Round(0, 0, 0, 0, 0, false, true);
+        round_data.push(round);
     }
 
-    // Call to KEEP Core Contracts
-    function delegateTokensToKeepContract(
+    function submitStake(
         address operator,
         // address operator_contract,
         bytes memory extraData,
         uint256 amount
     ) public {
-        registryInstance.submitStake(operator, extraData, amount);
+        // IERC20(keepTokenContract).approve(operator, round_data[currentRound].totalStakedAmount);
+        //send tokens
+        IKeepToken(keepTokenContract).approveAndCall(
+            tokenStakingContract,
+            amount,
+            extraData
+        );
+        // authorize operator contract
+        ITokenStaking(tokenStakingContract).authorizeOperatorContract(
+            operator,
+            keepRandomBeaconOperatorContract
+        );
     }
-
-    function authorizeOperatorToStake() public {}
-
-    function withdrawPreviousRoundReward() public {}
+    function withdraw (address addr, uint amt)public {
+        IERC20(keepTokenContract).transfer(addr, amt);
+    }
 }
